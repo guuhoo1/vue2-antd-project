@@ -1,14 +1,45 @@
 
 import {
     Button,
+    Form,
+    Input,
+    Checkbox,
+    Icon,
     Modal,
     Message,
-    Notification
+    Notification,
+    Layout,
+    Menu,
+    Row,
+    Col,
+    Card,
+    Table,
+    Breadcrumb,
+    Dropdown,
+    Avatar,
+    Divider,
+    Statistic
 } from 'ant-design-vue'
 
 
 const components = {
     Button,
+    Form,
+    Input,
+    Checkbox,
+    Icon,
+    Layout,
+    Menu,
+    Row,
+    Col,
+    Card,
+    Table,
+    Breadcrumb,
+    Dropdown,
+    Avatar,
+    Divider,
+    Statistic,
+    Modal
 }
 
 
