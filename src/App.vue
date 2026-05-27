@@ -1,41 +1,49 @@
 <template>
   <div id="app">
-    <router-view />
+    <component :is="layoutComponent">
+      <router-view />
+    </component>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import SidebarLayout from './layout/SidebarLayout.vue'
+import TopLayout from './layout/TopLayout.vue'
+import MixedLayout from './layout/MixedLayout.vue'
+
+const layoutMap = {
+  sidebar: SidebarLayout,
+  top: TopLayout,
+  mixed: MixedLayout,
+}
+
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapState('app', ['layoutMode']),
+    layoutComponent() {
+      const route = this.$route
+      if (route.meta && route.meta.noLayout) {
+        return 'router-view'
+      }
+      return layoutMap[this.layoutMode] || SidebarLayout
+    },
+  },
 }
 </script>
 
 <style lang="less">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import './styles/global.less';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html, body, #app {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  text-decoration: none;
-  color: #1890ff;
-
-  &:hover {
-    color: #40a9ff;
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI',
+      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
   }
 }
 </style>

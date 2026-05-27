@@ -1,0 +1,186 @@
+// Ant Design Vue 组件样式覆盖 - 使用 CSS 变量实现动态主题
+
+// Button
+.ant-btn-primary {
+  border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
+
+  &:hover, &:focus {
+    border-color: var(--primary-color-hover) !important;
+    background-color: var(--primary-color-hover) !important;
+  }
+
+  &:active {
+    border-color: var(--primary-color-active) !important;
+    background-color: var(--primary-color-active) !important;
+  }
+}
+
+.ant-btn-link {
+  color: var(--primary-color) !important;
+
+  &:hover {
+    color: var(--primary-color-hover) !important;
+  }
+}
+
+// Link
+.ant-btn {
+  a {
+    color: inherit;
+  }
+}
+
+// Menu (Sidebar)
+.ant-menu-dark {
+  background: var(--sidebar-bg) !important;
+
+  .ant-menu-item-selected {
+    background-color: var(--primary-color) !important;
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-submenu-title:hover {
+    color: var(--primary-color-hover) !important;
+  }
+
+  .ant-menu-submenu-selected {
+    .ant-menu-submenu-title {
+      color: var(--primary-color) !important;
+    }
+  }
+}
+
+// Menu (Horizontal/Top)
+.ant-menu-horizontal {
+  border-bottom-color: var(--border-color-light);
+
+  .ant-menu-item-selected {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color) !important;
+  }
+
+  .ant-menu-item-active {
+    color: var(--primary-color-hover) !important;
+    border-bottom-color: var(--primary-color-hover) !important;
+  }
+}
+
+// Table
+.ant-table-thead > tr > th {
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background-color: var(--primary-1) !important;
+}
+
+// Tabs
+.ant-tabs-ink-bar {
+  background-color: var(--primary-color) !important;
+}
+
+.ant-tabs-tab-active {
+  color: var(--primary-color) !important;
+}
+
+// Tag
+.ant-tag {
+  border-radius: 4px;
+}
+
+// Card
+.ant-card {
+  border-radius: @border-radius-card;
+  box-shadow: @shadow-card;
+
+  .ant-card-head {
+    border-bottom-color: var(--border-color-light);
+  }
+}
+
+// Dropdown
+.ant-dropdown-menu-item:hover {
+  background-color: var(--primary-1) !important;
+}
+
+// Input / Select focus
+.ant-input:focus,
+.ant-input-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--primary-color-hover) !important;
+  box-shadow: 0 0 0 2px var(--primary-color-outline) !important;
+}
+
+.ant-input:hover,
+.ant-select-selector:hover {
+  border-color: var(--primary-color-hover) !important;
+}
+
+// Switch
+.ant-switch-checked {
+  background-color: var(--primary-color) !important;
+}
+
+// Progress
+.ant-progress-bg {
+  background-color: var(--primary-color) !important;
+}
+
+// Checkbox
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner {
+  border-color: var(--primary-color-hover) !important;
+}
+
+// Radio
+.ant-radio-checked .ant-radio-inner {
+  border-color: var(--primary-color) !important;
+
+  &::after {
+    background-color: var(--primary-color) !important;
+  }
+}
+
+.ant-radio-wrapper:hover .ant-radio-inner,
+.ant-radio:hover .ant-radio-inner {
+  border-color: var(--primary-color-hover) !important;
+}
+
+// Breadcrumb
+.ant-breadcrumb a:hover {
+  color: var(--primary-color-hover) !important;
+}
+
+// Pagination
+.ant-pagination-item-active {
+  border-color: var(--primary-color) !important;
+
+  a {
+    color: var(--primary-color) !important;
+  }
+}
+
+.ant-pagination-item:hover {
+  border-color: var(--primary-color-hover) !important;
+
+  a {
+    color: var(--primary-color-hover) !important;
+  }
+}
+
+// Spin
+.ant-spin-dot-item {
+  background-color: var(--primary-color) !important;
+}
+
+// Message / Notification
+.ant-message-notice-content {
+  border-radius: @border-radius-base;
+}

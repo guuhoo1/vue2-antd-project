@@ -1,7 +1,7 @@
-
 import {
     Button,
     Form,
+    FormModel,
     Input,
     Checkbox,
     Icon,
@@ -18,13 +18,23 @@ import {
     Dropdown,
     Avatar,
     Divider,
-    Statistic
+    Statistic,
+    Tooltip,
+    Tag,
+    Switch,
+    Select,
+    Radio,
+    Tabs,
+    Progress,
+    Spin,
+    Pagination,
+    Drawer,
 } from 'ant-design-vue'
-
 
 const components = {
     Button,
     Form,
+    FormModel,
     Input,
     Checkbox,
     Icon,
@@ -39,16 +49,24 @@ const components = {
     Avatar,
     Divider,
     Statistic,
-    Modal
+    Tooltip,
+    Tag,
+    Switch,
+    Select,
+    Radio,
+    Tabs,
+    Progress,
+    Spin,
+    Pagination,
+    Drawer,
+    Modal,
 }
-
 
 export default {
     install(Vue) {
         Object.keys(components).forEach(key => {
             Vue.use(components[key])
         })
-        // 全局挂载方法
         Vue.prototype.$message = Message
         Vue.prototype.$modal = Modal
         Vue.prototype.$notify = Notification
