@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
+import guards from './guards'
 
 Vue.use(VueRouter)
 
@@ -7,7 +9,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue'),
+    component: () => import('@/pages/page/login/Login.vue'),
     meta: { title: '登录', noLayout: true },
   },
   {
@@ -104,15 +106,16 @@ const router = new VueRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token')
-  if (to.path !== '/login' && !token) {
-    next('/login')
-  } else if (to.path === '/login' && token) {
-    next('/dashboard')
-  } else {
-    next()
-  }
+guards.beforeEach.forEach((guard) => {
+  router.beforeEach((to, from, next) => {
+    guard(to, from, next, { store, router })
+  })
 })
 
-export default router
+guards.afterEach.forEach((guard) => {
+  router.afterEach((to, from) => {
+    guard(to, from, { store, router })
+  })
+})
+
+export { router as default, routes }
